@@ -1,0 +1,59 @@
+---
+title: "Homework 2"
+author: "Warrenkevin Henderson"
+date: "9/23/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## Instructions
+
+
+##### Every Saturday morning, at the same time, a primatologist goes and sits in the forest to listen for titi monkey calls, counting the number of calls they hear in a 2 hour window from 5am to 7am. Based on previous knowledge, she believes that the mean number of calls she will hear in that time is exactly 15. Let X represent the appropriate Poisson random variable of the number of calls heard in each monitoring session.
+
+
+###### What is the probability that she will hear more than eight calls during any given session?
+
+```{r}
+1-dpois(8,15)
+```
+
+
+###### What is the probability that she will hear no calls in a session?
+
+```{r}
+dpois(0,15)
+```
+
+
+###### What is the probability that she will hear exactly three calls in a session?
+
+```{r}
+dpois(3,15)
+```
+
+###### Plot the relevant Poisson mass function over the values in range 0 ≤ x ≤ 30.
+
+```{r}
+x <- 0:30
+l = 15
+probset <- dpois(x = x, lambda = l)
+barplot(probset, names.arg = x, space = 0, xlab = "x", ylab = "Pr(X = x)", main = "Probability Mass Function")
+```
+
+
+###### Simulate 104 results from this distribution (i.e., 2 years of Saturday monitoring sessions).
+
+```{r}
+rpois(104, 15)
+```
+
+
+###### Plot the simulated results using hist() and use xlim() to set the horizontal limits to be from 0 to 30. How does your histogram compare to the shape of the probability mass function you plotted above?
+
+```{r}
+library(ggplot2)
+graph <- rpois(104, 15)  
+hist(graph,xlab = "No. of Calls", ylab ="Frequency", main = "Histogram of calls", xlim=c(0,25))
+```
