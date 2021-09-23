@@ -36,10 +36,10 @@ dpois(3,15)
 ###### Plot the relevant Poisson mass function over the values in range 0 ≤ x ≤ 30.
 
 ```{r}
-x <- 0:30
 l = 15
+x <- 0:30
 probset <- dpois(x = x, lambda = l)
-barplot(probset, names.arg = x, space = 0, xlab = "x", ylab = "Pr(X = x)", main = "Probability Mass Function")
+barplot(probset, names.arg = x, space = 0, xlab = "X", ylab = "PMF(X = x)", main = "Poisson Mass Function")
 ```
 
 
